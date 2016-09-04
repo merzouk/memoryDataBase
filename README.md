@@ -4,7 +4,7 @@
  
 This project presents a simple example of using the memory base H2.
 
-It has four moduls maven, persist, services and web 
+It has four moduls maven, model, persist, services and web 
 
 model contains the diferents POJO
 
