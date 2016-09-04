@@ -45,6 +45,7 @@ import com.org.exception.PersonRuntimeException;
 import com.org.model.PersonModel;
 import com.org.model.TransactionAttributes;
 import com.org.utils.DefaultOrder;
+import com.org.utils.Tools;
 
 /**
  * A Renseigner.
@@ -56,16 +57,8 @@ import com.org.utils.DefaultOrder;
 @Repository("personDao")
 public class PersonDaoImpl implements PersonDao
 {
-   @PersistenceContext(unitName = "test")
+   @PersistenceContext(unitName = TransactionAttributes.TEST_PU)
    private EntityManager em;
-   
-   public boolean isValidEmailAddress( String email )
-   {
-      String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
-      java.util.regex.Pattern p = java.util.regex.Pattern.compile( ePattern );
-      java.util.regex.Matcher m = p.matcher( email );
-      return m.matches();
-   }
    
    /**
     * 
@@ -78,7 +71,7 @@ public class PersonDaoImpl implements PersonDao
       {
          throw new IllegalArgumentsException( "Invalid email " + email );
       }
-      if( !isValidEmailAddress( email ) )
+      if( !Tools.isValidEmailAddress( email ) )
       {
          throw new IllegalArgumentsException( "Invalid email expression " + email );
       }
