@@ -15,7 +15,7 @@
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
-		<!-- modules -->
+		<!-- modules utils-->
 		<dependency>
 			<groupId>com.org</groupId>
 			<artifactId>services</artifactId>
