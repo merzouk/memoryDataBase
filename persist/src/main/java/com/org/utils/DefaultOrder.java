@@ -32,11 +32,8 @@ public class DefaultOrder implements Comparator<PersonModel>
     * @return a negative integer, zero, or a positive integer as the first argument is less than, equal to, or greater
     *         than the second.
     */
-   // @Override
    public int compare( PersonModel o1, PersonModel o2 )
    {
-      
-      // Gestion des null
       if( o1 == null )
       {
          return o2 == null ? 0 : -1;
@@ -45,10 +42,9 @@ public class DefaultOrder implements Comparator<PersonModel>
       {
          return 1;
       }
-      // Tri en utilisant les id (si disponibles)
+      
       Integer id1 = o1.getId();
       Integer id2 = o2.getId();
-      // Si les 2 id sont non nulls, on les utilise
       if( id1 != null && id2 != null )
       {
          if( id1 != id2 )
@@ -62,7 +58,6 @@ public class DefaultOrder implements Comparator<PersonModel>
             return pk1 - pk2;
          }
       }
-      // Si les 2 id sont nulls, on utilise l'email
       String email1 = o1.getEmail();
       String email2 = o2.getEmail();
       if( email1 != null && email1 != null )
