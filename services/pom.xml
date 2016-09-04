@@ -74,7 +74,6 @@
 	<build>
 		<finalName>${project.artifactId}</finalName>
 		<plugins>
-			<!-- set versions of common plugins for reproducibility, ordered alphabetically -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
