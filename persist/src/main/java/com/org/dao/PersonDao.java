@@ -77,4 +77,20 @@ public interface PersonDao
    * @throws PersonRuntimeException
    */
    PersonModel read( Integer id ) throws PersonRuntimeException;
+   
+   /**
+    * 
+    * @param lastName
+    * @return
+    * @throws PersonRuntimeException
+    */
+   PersonModel getPersonByLastName( String lastName ) throws PersonRuntimeException;
+   
+   /**
+    * 
+    * @param firstName
+    * @return
+    * @throws PersonRuntimeException
+    */
+   PersonModel getPersonByFirstName( String firstName ) throws PersonRuntimeException;
 }

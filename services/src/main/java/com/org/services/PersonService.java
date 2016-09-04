@@ -27,6 +27,7 @@ package com.org.services;
 
 import java.util.List;
 
+import com.org.exception.PersonRuntimeException;
 import com.org.model.PersonModel;
 
 /**
@@ -65,4 +66,18 @@ public interface PersonService
     * @return
     */
    PersonModel read( Integer id );
+   
+   /**
+    * 
+    * @param lastName
+    * @return
+    */
+   PersonModel getPersonByLastName( String lastName );
+   
+   /**
+   * 
+   * @param firstName
+   * @return
+   */
+   PersonModel getPersonByFirstName( String firstName );
 }

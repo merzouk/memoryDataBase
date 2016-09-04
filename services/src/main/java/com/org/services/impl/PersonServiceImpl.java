@@ -114,4 +114,24 @@ public class PersonServiceImpl implements PersonService
       }
       return personDao.read( id );
    }
+   
+   @Override
+   public PersonModel getPersonByLastName( String lastName )
+   {
+      if( lastName == null || lastName.trim().length() <= 0 )
+      {
+         throw new IllegalArgumentsException( "Invalid control lastName " );
+      }
+      return personDao.getPersonByLastName( lastName );
+   }
+   
+   @Override
+   public PersonModel getPersonByFirstName( String firstName )
+   {
+      if( firstName == null || firstName.trim().length() <= 0 )
+      {
+         throw new IllegalArgumentsException( "Invalid control firstName " );
+      }
+      return personDao.getPersonByFirstName( firstName );
+   }
 }

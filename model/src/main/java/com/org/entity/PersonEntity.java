@@ -29,7 +29,7 @@ import javax.persistence.Table;
     @NamedQuery(name = "personByFirstName",
                 query = "select p from Person p where p.firstName = :firstName"),
     @NamedQuery(name = "personByEmail",
-    query = "select p from Person p where p.email = :email"),
+                query = "select p from Person p where p.email = :email"),
     @NamedQuery(name = "personByLastName",
                 query = "select p from Person p where p.lastName = :lastName"),
     @NamedQuery(name = "personById",

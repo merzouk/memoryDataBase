@@ -61,10 +61,9 @@ public class PersonDaoImpl implements PersonDao
    private EntityManager em;
    
    /**
-    * 
-    * @param email
-    * @return
-    */
+   * 
+   * @see com.org.dao.PersonDao#personsByEmail(java.lang.String)
+   */
    public List<PersonModel> personsByEmail( String email )
    {
       if( email == null || email.trim().length() == 0 )
@@ -137,9 +136,9 @@ public class PersonDaoImpl implements PersonDao
    }
    
    /**
-    * 
-    * @see com.org.dao.PersonDao#create(com.org.model.PersonModel)
-    */
+   * 
+   * @see com.org.dao.PersonDao#create(com.org.model.PersonModel)
+   */
    @Override
    @Transactional(TransactionAttributes.TEST_TX_MANAGER_NAME)
    public PersonModel create( PersonModel personModel ) throws PersonRuntimeException
@@ -166,9 +165,9 @@ public class PersonDaoImpl implements PersonDao
    }
    
    /**
-    * 
-    * @see com.org.dao.PersonDao#read(int)
-    */
+   * 
+   * @see com.org.dao.PersonDao#read(java.lang.Integer)
+   */
    @Override
    public PersonModel read( Integer id ) throws PersonRuntimeException
    {
@@ -178,20 +177,62 @@ public class PersonDaoImpl implements PersonDao
       }
       try
       {
-         String quer = "select d from Person d where d.id = :id ";
-         TypedQuery<PersonEntity> query = em.createQuery( quer, PersonEntity.class );
-         /**
-          * TypedQuery<PersonModelEntity> query = em.createNamedQuery(
-          * "PersonModelById", PersonModelEntity.class);
-          */
-         query.setParameter( "id", id );
-         PersonEntity entity = query.getSingleResult();
+         Query query = em.createNamedQuery( "personById" ).setParameter( "id", id );
+         PersonEntity entity = (PersonEntity) query.getSingleResult();
          PersonModel converted = toModel( entity );
          return converted;
       }
       catch( PersistenceException ex )
       {
          throw new PersonRuntimeException( "Persistence exception detected during the read of the object PersonModel id = " + id, ex );
+      }
+   }
+   
+   /**
+    * 
+    * @see com.org.dao.PersonDao#getPersonByLastName(java.lang.String)
+    */
+   @Override
+   public PersonModel getPersonByLastName( String lastName ) throws PersonRuntimeException
+   {
+      if( lastName == null || lastName.trim().length() <= 0 )
+      {
+         throw new IllegalArgumentsException( "Invalid control lastName " + lastName );
+      }
+      try
+      {
+         Query query = em.createNamedQuery( "personByLastName" ).setParameter( "lastName", lastName );
+         PersonEntity entity = (PersonEntity) query.getSingleResult();
+         PersonModel converted = toModel( entity );
+         return converted;
+      }
+      catch( PersistenceException ex )
+      {
+         throw new PersonRuntimeException( "Persistence exception detected during the read of the object PersonModel lastName = " + lastName, ex );
+      }
+   }
+   
+   /**
+    * 
+    * @see com.org.dao.PersonDao#getPersonByFirstName(java.lang.String)
+    */
+   @Override
+   public PersonModel getPersonByFirstName( String firstName ) throws PersonRuntimeException
+   {
+      if( firstName == null || firstName.trim().length() <= 0 )
+      {
+         throw new IllegalArgumentsException( "Invalid control firstName " + firstName );
+      }
+      try
+      {
+         Query query = em.createNamedQuery( "personByFirstName" ).setParameter( "firstName", firstName );
+         PersonEntity entity = (PersonEntity) query.getSingleResult();
+         PersonModel converted = toModel( entity );
+         return converted;
+      }
+      catch( PersistenceException ex )
+      {
+         throw new PersonRuntimeException( "Persistence exception detected during the read of the object PersonModel firstName = " + firstName, ex );
       }
    }
    
