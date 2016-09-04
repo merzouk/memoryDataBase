@@ -20,6 +20,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<h2.version>1.3.160</h2.version>
+		<jetty.version>6.1.25</jetty.version>
 
 		<java.version>1.8</java.version>
 		<hibernate.version>3.6.8.Final</hibernate.version>
@@ -28,8 +29,6 @@
 		<commons-dbcp.version>1.4</commons-dbcp.version>
 
 		<spring.version>4.2.6.RELEASE</spring.version>
-
-
 
 		<junit.version>4.11</junit.version>
 		<easymock.version>3.0</easymock.version>
