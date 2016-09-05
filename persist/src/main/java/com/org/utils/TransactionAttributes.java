@@ -5,8 +5,8 @@ package com.org.utils;
  * 
  * A Renseigner.
  * @author  : mmenhour
- * @project : model
- * @package : com.org.model
+ * @project : persist
+ * @package : com.org.utils
  * @date    : 4 sept. 2016 13:46:07
  */
 public interface TransactionAttributes
