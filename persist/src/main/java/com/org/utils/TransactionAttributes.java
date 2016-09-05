@@ -1,5 +1,5 @@
 
-package com.org.model;
+package com.org.utils;
 
 /**
  * 

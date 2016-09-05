@@ -43,9 +43,9 @@ import com.org.entity.PersonEntity;
 import com.org.exception.IllegalArgumentsException;
 import com.org.exception.PersonRuntimeException;
 import com.org.model.PersonModel;
-import com.org.model.TransactionAttributes;
 import com.org.utils.DefaultOrder;
 import com.org.utils.Tools;
+import com.org.utils.TransactionAttributes;
 
 /**
  * A Renseigner.
