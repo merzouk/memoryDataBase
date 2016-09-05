@@ -17,6 +17,8 @@ public interface TransactionAttributes
    
    public static final String TEST_PU              = "test";
    
+   public static final String REC_PU               = "recete";
+   
    public static final String INT_PU               = "integration";
    
    public static final String PROD_PU              = "production";
