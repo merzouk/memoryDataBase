@@ -1,3 +1,4 @@
+
 package com.org.unit.persist;
 
 /**
@@ -8,10 +9,12 @@ package com.org.unit.persist;
  * @package : com.org.model
  * @date    : 4 sept. 2016 13:46:07
  */
-public interface TransactionAttributes {
-
-	String TX_MANAGER_NAME = "txManager";
-
-	String TEST_TX_MANAGER_NAME = "testTxManager";
-
+public interface TransactionAttributes
+{
+   
+   public final String TX_MANAGER_NAME      = "txManager";
+   
+   public final String TEST_TX_MANAGER_NAME = "testTxManager";
+   
+   public final String RESISTENCE_CONTEXT   = "test";
 }
