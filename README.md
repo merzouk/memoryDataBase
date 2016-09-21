@@ -12,6 +12,6 @@ repository contains the mechanical access to the database
 
 use-cases contains the services of the project
 
-La configuration dans le fichier xml, elle contient deux sources de données 'test' and 'memory'
+The configuration in the xml file, it contains two data sources 'test' and 'memory'
 
 The tests concerned the Dao and service.
