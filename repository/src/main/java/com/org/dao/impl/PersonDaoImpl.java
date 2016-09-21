@@ -38,7 +38,7 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.org.dao.PersonDao;
+import com.org.dao.ContratDao;
 import com.org.entity.PersonEntity;
 import com.org.exception.IllegalArgumentsException;
 import com.org.exception.PersonRuntimeException;
@@ -55,7 +55,7 @@ import com.org.utils.DefaultOrder;
  * @date    : 4 sept. 2016 13:52:06
  */
 @Repository("personDao")
-public class PersonDaoImpl implements PersonDao<PersonModel, Integer>
+public class PersonDaoImpl implements ContratDao<PersonModel, Integer>
 {
    @PersistenceContext(unitName = "test")
    private EntityManager em;
@@ -85,7 +85,7 @@ public class PersonDaoImpl implements PersonDao<PersonModel, Integer>
    
    /**
     * 
-    * @see com.org.dao.PersonDao#getAll()
+    * @see com.org.dao.ContratDao#getAll()
     */
    @Override
    public List<PersonModel> getAll() throws PersonRuntimeException
@@ -106,7 +106,7 @@ public class PersonDaoImpl implements PersonDao<PersonModel, Integer>
    
    /**
     * 
-    * @see com.org.dao.PersonDao#update(com.org.model.PersonModel)
+    * @see com.org.dao.ContratDao#update(com.org.model.PersonModel)
     */
    @Override
    @Transactional(TransactionAttributes.TEST_TX_MANAGER_NAME)
@@ -139,7 +139,7 @@ public class PersonDaoImpl implements PersonDao<PersonModel, Integer>
    
    /**
     * 
-    * @see com.org.dao.PersonDao#create(com.org.model.PersonModel)
+    * @see com.org.dao.ContratDao#create(com.org.model.PersonModel)
     */
    @Override
    @Transactional(TransactionAttributes.TEST_TX_MANAGER_NAME)
@@ -168,7 +168,7 @@ public class PersonDaoImpl implements PersonDao<PersonModel, Integer>
    
    /**
     * 
-    * @see com.org.dao.PersonDao#read(int)
+    * @see com.org.dao.ContratDao#read(int)
     */
    @Override
    public PersonModel read( Integer id ) throws PersonRuntimeException

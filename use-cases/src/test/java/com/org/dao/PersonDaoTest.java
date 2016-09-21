@@ -61,7 +61,7 @@ import com.org.model.PersonModel;
 public class PersonDaoTest
 {
    @Autowired
-   private PersonDao<PersonModel, Integer> personDao;
+   private ContratDao<PersonModel, Integer> personDao;
    
    @Before
    public void init()

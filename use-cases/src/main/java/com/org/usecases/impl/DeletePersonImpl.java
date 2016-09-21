@@ -28,7 +28,7 @@ package com.org.usecases.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.org.dao.PersonDao;
+import com.org.dao.ContratDao;
 import com.org.model.PersonModel;
 import com.org.usecases.DeletePerson;
 
@@ -44,7 +44,7 @@ public class DeletePersonImpl implements DeletePerson<PersonModel, Integer>
 {
    
    @Autowired
-   private PersonDao<PersonModel, Integer> personDao;
+   private ContratDao<PersonModel, Integer> personDao;
    
    /**
     * 

@@ -37,7 +37,7 @@ import com.org.exception.PersonRuntimeException;
  * @package : com.org.dao
  * @date    : 4 sept. 2016 13:46:52
  */
-public interface PersonDao<T, I extends Serializable>
+public interface ContratDao<T, I extends Serializable>
 {
    
    /**
