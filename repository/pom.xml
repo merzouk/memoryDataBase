@@ -19,7 +19,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.org</groupId>
-			<artifactId>model</artifactId>
+			<artifactId>contrats</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>

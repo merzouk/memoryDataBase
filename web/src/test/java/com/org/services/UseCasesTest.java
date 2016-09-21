@@ -23,7 +23,7 @@
  *---------------------------------------------------------
  */
 
-package com.org.usecases;
+package com.org.services;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -46,6 +46,9 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import com.org.exception.IllegalArgumentsException;
 import com.org.exception.PersonRuntimeException;
 import com.org.model.PersonModel;
+import com.org.usecases.DeletePerson;
+import com.org.usecases.LoadPerson;
+import com.org.usecases.UpdateCreatePerson;
 
 /**
  * A Renseigner.
@@ -56,9 +59,9 @@ import com.org.model.PersonModel;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class })
-@ContextConfiguration(locations = { "classpath:META-INF/spring/ref-datasource-test.xml" })
+@ContextConfiguration(locations = { "classpath:META-INF/spring/ref-web-datasource-test.xml" })
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class PersonServiceTest
+public class UseCasesTest
 {
    @SuppressWarnings("unused")
    @Autowired
