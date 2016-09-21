@@ -4,13 +4,13 @@
  
 This project presents a simple example of using the memory base H2.
 
-It has four moduls maven, model, persist, services and web 
+It has five moduls maven, use-cases, commons, model, repository, and web 
 
 model contains the diferents POJO
 
-persist contains the mechanical access to the database
+repository contains the mechanical access to the database
 
-services contains the services of the project
+use-cases contains the services of the project
 
 La configuration dans le fichier xml, elle contient deux sources de données 'test' and 'memory'
 

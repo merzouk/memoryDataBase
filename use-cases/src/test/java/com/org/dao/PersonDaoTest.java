@@ -14,8 +14,8 @@
  * Administrateur.
  *-------------------------------------------------------- 
  * 
- * Fichier 		:	PersonServiceTest.java
- * Cree le 		: 	4 sept. 2016 à 14:29:24
+ * Fichier 		:	PersonDaoTest.java
+ * Cree le 		: 	4 sept. 2016 à 16:30:40
  * Auteur		: 	admin
  * 
  * Description 	:
@@ -23,7 +23,7 @@
  *---------------------------------------------------------
  */
 
-package com.org.services;
+package com.org.dao;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -46,32 +46,22 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import com.org.exception.IllegalArgumentsException;
 import com.org.exception.PersonRuntimeException;
 import com.org.model.PersonModel;
-import com.org.usecases.DeletePerson;
-import com.org.usecases.LoadPerson;
-import com.org.usecases.UpdateCreatePerson;
 
 /**
  * A Renseigner.
- * @author  : admin
+ * @author  : mmenhour
  * @project : services
- * @package : com.org.services
- * @date    : 4 sept. 2016 14:29:24
+ * @package : com.org.dao
+ * @date    : 4 sept. 2016 16:30:40
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class })
-@ContextConfiguration(locations = { "classpath:META-INF/spring/ref-web-datasource-test.xml" })
+@ContextConfiguration(locations = { "classpath:META-INF/spring/ref-datasource-test.xml" })
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class PersonServiceTest
+public class PersonDaoTest
 {
-   @SuppressWarnings("unused")
    @Autowired
-   private DeletePerson<PersonModel, Integer> deleteService;
-   
-   @Autowired
-   private LoadPerson<PersonModel, Integer>   loadPerson;
-   
-   @Autowired
-   private UpdateCreatePerson<PersonModel>    updateCreatePerson;
+   private PersonDao<PersonModel, Integer> personDao;
    
    @Before
    public void init()
@@ -105,7 +95,7 @@ public class PersonServiceTest
       try
       {
          @SuppressWarnings("unused")
-         PersonModel data = loadPerson.getById( 0 );
+         PersonModel data = personDao.read( 0 );
          fail();
       }
       catch( IllegalArgumentsException ex )
@@ -118,7 +108,7 @@ public class PersonServiceTest
    public void test_b()
    {
       PersonModel data = null;
-      data = loadPerson.getById( 1 );
+      data = personDao.read( 1 );
       assertNotNull( data );
       assertEquals( "firstName1", data.getFirstName() );
       assertEquals( "courriel1@email.com", data.getEmail() );
@@ -128,7 +118,7 @@ public class PersonServiceTest
    public void test_c()
    {
       PersonModel data = null;
-      data = loadPerson.getById( 6 );
+      data = personDao.read( 6 );
       assertNotNull( data );
       assertEquals( "lastName6", data.getLastName() );
       assertEquals( "courriel6@email.com", data.getEmail() );
@@ -138,13 +128,13 @@ public class PersonServiceTest
    public void test_d()
    {
       @SuppressWarnings("unused")
-      PersonModel data = loadPerson.getById( 50 );
+      PersonModel data = personDao.read( 50 );
    }
    
    @Test
    public void test_e()
    {
-      List<PersonModel> datas = loadPerson.getAll();
+      List<PersonModel> datas = personDao.getAll();
       assertNotNull( datas );
       assertEquals( 6, datas.size() );
    }
@@ -156,7 +146,7 @@ public class PersonServiceTest
       person.setEmail( "courriel7@email.com" );
       person.setFirstName( "firstName7" );
       person.setLastName( "lastName7" );
-      person = updateCreatePerson.create( person );
+      person = personDao.create( person );
       assertNotNull( person );
       assertEquals( 7, person.getId().intValue() );
    }
@@ -164,7 +154,7 @@ public class PersonServiceTest
    @Test
    public void test_g()
    {
-      List<PersonModel> datas = loadPerson.getAll();
+      List<PersonModel> datas = personDao.getAll();
       assertNotNull( datas );
       assertEquals( 7, datas.size() );
    }
@@ -177,7 +167,7 @@ public class PersonServiceTest
       person.setFirstName( "firstName7_bis" );
       person.setLastName( "lastName7_bis" );
       person.setId( 7 );
-      person = updateCreatePerson.update( person );
+      person = personDao.update( person );
       assertNotNull( person );
       assertEquals( "firstName7_bis", person.getFirstName() );
       assertEquals( "courriel7_bis@email.com", person.getEmail() );
@@ -187,8 +177,26 @@ public class PersonServiceTest
    @Test
    public void test_l()
    {
-      List<PersonModel> datas = loadPerson.getAll();
+      List<PersonModel> datas = personDao.getAll();
       assertNotNull( datas );
       assertEquals( 7, datas.size() );
+   }
+   
+   @Test
+   public void test_m() throws Exception
+   {
+      PersonModel person = new PersonModel();
+      person.setEmail( "courriel4@email.com" );
+      person.setFirstName( "firstName7" );
+      person.setLastName( "lastName7" );
+      try
+      {
+         person = personDao.create( person );
+         fail();
+      }
+      catch( Exception e )
+      {
+         
+      }
    }
 }
