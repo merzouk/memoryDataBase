@@ -57,7 +57,7 @@ import com.org.utils.DefaultOrder;
 @Repository("personDao")
 public class PersonDaoImpl implements ContratDao<PersonModel, Integer>
 {
-   @PersistenceContext(unitName = TransactionAttributes.RESISTENCE_CONTEXT)
+   @PersistenceContext(unitName = TransactionAttributes.PESISTENCE_CONTEXT)
    private EntityManager em;
    
    

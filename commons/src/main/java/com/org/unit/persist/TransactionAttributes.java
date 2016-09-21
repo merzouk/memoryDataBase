@@ -16,5 +16,5 @@ public interface TransactionAttributes
    
    public final String TEST_TX_MANAGER_NAME = "testTxManager";
    
-   public final String RESISTENCE_CONTEXT   = "test";
+   public final String PESISTENCE_CONTEXT   = "test";
 }
