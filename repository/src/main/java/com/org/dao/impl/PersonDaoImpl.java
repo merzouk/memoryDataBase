@@ -77,7 +77,7 @@ public class PersonDaoImpl implements ContratDao<PersonModel, Integer>
       {
          throw new IllegalArgumentsException( "Invalid email expression " + email );
       }
-      Query query = em.createNamedQuery( "personByEmail" ).setParameter( "email", email );
+      Query query = em.createNamedQuery( PersonEntity.PERSON_BY_EMAIL ).setParameter( "email", email );
       @SuppressWarnings("unchecked")
       List<PersonModel> results = query.getResultList();
       return results;
