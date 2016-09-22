@@ -37,6 +37,8 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
@@ -62,6 +64,8 @@ public class PersonDaoTest
 {
    @Autowired
    private ContratDao<PersonModel, Integer> personDao;
+   
+   private static final Logger              logger = LoggerFactory.getLogger( PersonDaoTest.class );
    
    @Before
    public void init()
@@ -92,6 +96,7 @@ public class PersonDaoTest
    @Test
    public void test_a()
    {
+      logger.info( "test_a" );
       try
       {
          @SuppressWarnings("unused")
@@ -107,6 +112,7 @@ public class PersonDaoTest
    @Test
    public void test_b()
    {
+      logger.info( "test_b" );
       PersonModel data = null;
       data = personDao.read( 1 );
       assertNotNull( data );
@@ -117,6 +123,7 @@ public class PersonDaoTest
    @Test
    public void test_c()
    {
+      logger.info( "test_b" );
       PersonModel data = null;
       data = personDao.read( 6 );
       assertNotNull( data );
@@ -127,6 +134,7 @@ public class PersonDaoTest
    @Test(expected = PersonRuntimeException.class)
    public void test_d()
    {
+      logger.info( "test_d" );
       @SuppressWarnings("unused")
       PersonModel data = personDao.read( 50 );
    }
@@ -134,6 +142,7 @@ public class PersonDaoTest
    @Test
    public void test_e()
    {
+      logger.info( "test_e" );
       List<PersonModel> datas = personDao.getAll();
       assertNotNull( datas );
       assertEquals( 6, datas.size() );
@@ -142,6 +151,7 @@ public class PersonDaoTest
    @Test
    public void test_f()
    {
+      logger.info( "test_f" );
       PersonModel person = new PersonModel();
       person.setEmail( "courriel7@email.com" );
       person.setFirstName( "firstName7" );
@@ -154,6 +164,7 @@ public class PersonDaoTest
    @Test
    public void test_g()
    {
+      logger.info( "test_g" );
       List<PersonModel> datas = personDao.getAll();
       assertNotNull( datas );
       assertEquals( 7, datas.size() );
@@ -162,6 +173,7 @@ public class PersonDaoTest
    @Test
    public void test_k()
    {
+      logger.info( "test_k" );
       PersonModel person = new PersonModel();
       person.setEmail( "courriel7_bis@email.com" );
       person.setFirstName( "firstName7_bis" );
@@ -177,6 +189,7 @@ public class PersonDaoTest
    @Test
    public void test_l()
    {
+      logger.info( "test_l" );
       List<PersonModel> datas = personDao.getAll();
       assertNotNull( datas );
       assertEquals( 7, datas.size() );
@@ -185,6 +198,7 @@ public class PersonDaoTest
    @Test
    public void test_m() throws Exception
    {
+      logger.info( "test_m" );
       PersonModel person = new PersonModel();
       person.setEmail( "courriel4@email.com" );
       person.setFirstName( "firstName7" );

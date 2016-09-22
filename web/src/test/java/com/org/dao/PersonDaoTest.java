@@ -2,7 +2,7 @@
  *--------------------------------------------------------
  * Administrateur
  *--------------------------------------------------------
- * Project     : services
+ * Project     : web
  *
  * Copyright Administrateur,  All Rights Reserved.
  *
@@ -14,8 +14,8 @@
  * Administrateur.
  *-------------------------------------------------------- 
  * 
- * Fichier 		:	PersonServiceTest.java
- * Cree le 		: 	4 sept. 2016 à 14:29:24
+ * Fichier 		:	PersonDaoTest.java
+ * Cree le 		: 	22 sept. 2016 à 06:54:58
  * Auteur		: 	admin
  * 
  * Description 	:
@@ -23,7 +23,7 @@
  *---------------------------------------------------------
  */
 
-package com.org.usecases;
+package com.org.dao;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -52,27 +52,20 @@ import com.org.model.PersonModel;
 /**
  * A Renseigner.
  * @author  : admin
- * @project : services
- * @package : com.org.services
- * @date    : 4 sept. 2016 14:29:24
+ * @project : web
+ * @package : com.org.dao
+ * @date    : 22 sept. 2016 06:54:58
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class })
-@ContextConfiguration(locations = { "classpath:META-INF/spring/ref-datasource-test.xml" })
+@ContextConfiguration(locations = { "classpath:META-INF/spring/ref-web-datasource-test.xml" })
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class UseCasesTest
+public class PersonDaoTest
 {
-   @SuppressWarnings("unused")
    @Autowired
-   private DeletePerson<PersonModel, Integer> deleteService;
+   private ContratDao<PersonModel, Integer> personDao;
    
-   @Autowired
-   private LoadPerson<PersonModel, Integer>   loadPerson;
-   
-   @Autowired
-   private UpdateCreatePerson<PersonModel>    updateCreatePerson;
-   
-   private static final Logger                logger = LoggerFactory.getLogger( UseCasesTest.class );
+   private static final Logger              logger = LoggerFactory.getLogger( PersonDaoTest.class );
    
    @Before
    public void init()
@@ -107,7 +100,7 @@ public class UseCasesTest
       try
       {
          @SuppressWarnings("unused")
-         PersonModel data = loadPerson.getById( 0 );
+         PersonModel data = personDao.read( 0 );
          fail();
       }
       catch( IllegalArgumentsException ex )
@@ -121,7 +114,7 @@ public class UseCasesTest
    {
       logger.info( "test_b" );
       PersonModel data = null;
-      data = loadPerson.getById( 1 );
+      data = personDao.read( 1 );
       assertNotNull( data );
       assertEquals( "firstName1", data.getFirstName() );
       assertEquals( "courriel1@email.com", data.getEmail() );
@@ -130,9 +123,9 @@ public class UseCasesTest
    @Test
    public void test_c()
    {
-      logger.info( "test_c" );
+      logger.info( "test_b" );
       PersonModel data = null;
-      data = loadPerson.getById( 6 );
+      data = personDao.read( 6 );
       assertNotNull( data );
       assertEquals( "lastName6", data.getLastName() );
       assertEquals( "courriel6@email.com", data.getEmail() );
@@ -143,14 +136,14 @@ public class UseCasesTest
    {
       logger.info( "test_d" );
       @SuppressWarnings("unused")
-      PersonModel data = loadPerson.getById( 50 );
+      PersonModel data = personDao.read( 50 );
    }
    
    @Test
    public void test_e()
    {
       logger.info( "test_e" );
-      List<PersonModel> datas = loadPerson.getAll();
+      List<PersonModel> datas = personDao.getAll();
       assertNotNull( datas );
       assertEquals( 6, datas.size() );
    }
@@ -163,7 +156,7 @@ public class UseCasesTest
       person.setEmail( "courriel7@email.com" );
       person.setFirstName( "firstName7" );
       person.setLastName( "lastName7" );
-      person = updateCreatePerson.create( person );
+      person = personDao.create( person );
       assertNotNull( person );
       assertEquals( 7, person.getId().intValue() );
    }
@@ -172,7 +165,7 @@ public class UseCasesTest
    public void test_g()
    {
       logger.info( "test_g" );
-      List<PersonModel> datas = loadPerson.getAll();
+      List<PersonModel> datas = personDao.getAll();
       assertNotNull( datas );
       assertEquals( 7, datas.size() );
    }
@@ -186,7 +179,7 @@ public class UseCasesTest
       person.setFirstName( "firstName7_bis" );
       person.setLastName( "lastName7_bis" );
       person.setId( 7 );
-      person = updateCreatePerson.update( person );
+      person = personDao.update( person );
       assertNotNull( person );
       assertEquals( "firstName7_bis", person.getFirstName() );
       assertEquals( "courriel7_bis@email.com", person.getEmail() );
@@ -197,8 +190,27 @@ public class UseCasesTest
    public void test_l()
    {
       logger.info( "test_l" );
-      List<PersonModel> datas = loadPerson.getAll();
+      List<PersonModel> datas = personDao.getAll();
       assertNotNull( datas );
       assertEquals( 7, datas.size() );
+   }
+   
+   @Test
+   public void test_m() throws Exception
+   {
+      logger.info( "test_m" );
+      PersonModel person = new PersonModel();
+      person.setEmail( "courriel4@email.com" );
+      person.setFirstName( "firstName7" );
+      person.setLastName( "lastName7" );
+      try
+      {
+         person = personDao.create( person );
+         fail();
+      }
+      catch( Exception e )
+      {
+         
+      }
    }
 }

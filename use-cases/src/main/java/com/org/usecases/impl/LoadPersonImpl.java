@@ -27,6 +27,8 @@ package com.org.usecases.impl;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,6 +47,8 @@ import com.org.usecases.LoadPerson;
 public class LoadPersonImpl implements LoadPerson<PersonModel, Integer>
 {
    
+   private static final Logger              logger = LoggerFactory.getLogger( LoadPersonImpl.class );
+   
    @Autowired
    private ContratDao<PersonModel, Integer> personDao;
    
@@ -55,6 +59,7 @@ public class LoadPersonImpl implements LoadPerson<PersonModel, Integer>
    @Override
    public List<PersonModel> getAll()
    {
+      logger.info( "getAll" );
       return personDao.getAll();
    }
    
@@ -65,6 +70,7 @@ public class LoadPersonImpl implements LoadPerson<PersonModel, Integer>
    @Override
    public PersonModel getById( Integer primaryKey )
    {
+      logger.info( "getById" );
       return personDao.read( primaryKey );
    }
 }

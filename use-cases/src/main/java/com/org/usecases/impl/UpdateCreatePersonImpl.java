@@ -25,6 +25,8 @@
 
 package com.org.usecases.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,6 +44,7 @@ import com.org.usecases.UpdateCreatePerson;
 @Service("updateCreatePerson")
 public class UpdateCreatePersonImpl implements UpdateCreatePerson<PersonModel>
 {
+   private static final Logger              logger = LoggerFactory.getLogger( UpdateCreatePersonImpl.class );
    
    @Autowired
    private ContratDao<PersonModel, Integer> personDao;
@@ -53,6 +56,7 @@ public class UpdateCreatePersonImpl implements UpdateCreatePerson<PersonModel>
    @Override
    public PersonModel update( PersonModel t )
    {
+      logger.info( "update" );
       return personDao.update( t );
    }
    
@@ -63,6 +67,7 @@ public class UpdateCreatePersonImpl implements UpdateCreatePerson<PersonModel>
    @Override
    public PersonModel create( PersonModel t )
    {
+      logger.info( "create" );
       return personDao.create( t );
    }
 }

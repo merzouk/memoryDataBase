@@ -25,6 +25,8 @@
 
 package com.org.usecases.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,6 +44,7 @@ import com.org.usecases.DeletePerson;
 @Service("deletePerson")
 public class DeletePersonImpl implements DeletePerson<PersonModel, Integer>
 {
+   private static final Logger              logger = LoggerFactory.getLogger( DeletePersonImpl.class );
    
    @Autowired
    private ContratDao<PersonModel, Integer> personDao;
@@ -53,6 +56,7 @@ public class DeletePersonImpl implements DeletePerson<PersonModel, Integer>
    @Override
    public void deleteById( Integer primaryKey )
    {
+      logger.info( "deleteById" );
       personDao.deleteById( primaryKey );
    }
    
@@ -63,6 +67,7 @@ public class DeletePersonImpl implements DeletePerson<PersonModel, Integer>
    @Override
    public void delete( PersonModel t )
    {
+      logger.info( "delete" );
       personDao.delete( t );
    }
 }

@@ -35,6 +35,8 @@ import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -57,10 +59,11 @@ import com.org.utils.DefaultOrder;
 @Repository("personDao")
 public class PersonDaoImpl implements ContratDao<PersonModel, Integer>
 {
+   
+   private static final Logger logger = LoggerFactory.getLogger( PersonDaoImpl.class );
+   
    @PersistenceContext(unitName = TransactionAttributes.PERSISTENCE_CONTEXT)
-   private EntityManager em;
-   
-   
+   private EntityManager       em;
    
    /**
     * 
@@ -90,6 +93,7 @@ public class PersonDaoImpl implements ContratDao<PersonModel, Integer>
    @Override
    public List<PersonModel> getAll() throws PersonRuntimeException
    {
+      logger.info( "getAll" );
       try
       {
          TypedQuery<PersonEntity> query = em.createNamedQuery( PersonEntity.LIST_PERSON, PersonEntity.class );
@@ -112,7 +116,7 @@ public class PersonDaoImpl implements ContratDao<PersonModel, Integer>
    @Transactional(TransactionAttributes.TEST_TX_MANAGER_NAME)
    public PersonModel update( PersonModel personModel ) throws PersonRuntimeException
    {
-      
+      logger.info( "update" );
       if( personModel == null )
       {
          throw new NullPointerException();
@@ -145,6 +149,7 @@ public class PersonDaoImpl implements ContratDao<PersonModel, Integer>
    @Transactional(TransactionAttributes.TEST_TX_MANAGER_NAME)
    public PersonModel create( PersonModel personModel ) throws PersonRuntimeException
    {
+      logger.info( "create" );
       if( personModel == null )
       {
          throw new NullPointerException();
@@ -173,6 +178,7 @@ public class PersonDaoImpl implements ContratDao<PersonModel, Integer>
    @Override
    public PersonModel read( Integer id ) throws PersonRuntimeException
    {
+      logger.info( "read" );
       if( id == null || id.intValue() <= 0 )
       {
          throw new IllegalArgumentsException( "Invalid control id <= 0 " + id );
@@ -273,6 +279,7 @@ public class PersonDaoImpl implements ContratDao<PersonModel, Integer>
    @Override
    public void deleteById( Integer primaryKey ) throws PersonRuntimeException
    {
+      logger.info( "deleteById" );
       PersonModel model = read( primaryKey );
       if( model != null && model.getId() != null && model.getId().intValue() > 0 )
       {
@@ -289,6 +296,7 @@ public class PersonDaoImpl implements ContratDao<PersonModel, Integer>
    @Override
    public void delete( PersonModel t ) throws PersonRuntimeException
    {
+      logger.info( "delete" );
       if( t != null && t.getId() != null && t.getId().intValue() > 0 )
       {
          deleteById( t.getId() );
