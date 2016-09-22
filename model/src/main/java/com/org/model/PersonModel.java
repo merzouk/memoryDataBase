@@ -1,27 +1,3 @@
-/*
- *--------------------------------------------------------
- * Administrateur
- *--------------------------------------------------------
- * Project     : model
- *
- * Copyright Administrateur,  All Rights Reserved.
- *
- * This software is the confidential and proprietary
- * information of Administrateur.
- * You shall not disclose such Confidential Information
- * and shall use it only in accordance with the terms
- * of the license agreement you entered into with
- * Administrateur.
- *-------------------------------------------------------- 
- * 
- * Fichier 		:	PersonModel.java
- * Cree le 		: 	4 sept. 2016 à 13:44:48
- * Auteur		: 	admin
- * 
- * Description 	:
- * 
- *---------------------------------------------------------
- */
 
 package com.org.model;
 

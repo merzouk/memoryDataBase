@@ -1,28 +1,3 @@
-/*
- *--------------------------------------------------------
- * Administrateur
- *--------------------------------------------------------
- * Project     : persist
- *
- * Copyright Administrateur,  All Rights Reserved.
- *
- * This software is the confidential and proprietary
- * information of Administrateur.
- * You shall not disclose such Confidential Information
- * and shall use it only in accordance with the terms
- * of the license agreement you entered into with
- * Administrateur.
- *-------------------------------------------------------- 
- * 
- * Fichier 		:	PersonDao.java
- * Cree le 		: 	4 sept. 2016 à 13:46:52
- * Auteur		: 	admin
- * 
- * Description 	:
- * 
- *---------------------------------------------------------
- */
-
 package com.org.dao;
 
 import java.io.Serializable;
@@ -46,7 +21,7 @@ public interface ContratDao<T, I extends Serializable>
    * @return
    * @throws PersonRuntimeException
    */
-   List<T> getByEmail( String email ) throws PersonRuntimeException;
+   T getByEmail( String email ) throws PersonRuntimeException;
    
    /**
     * 

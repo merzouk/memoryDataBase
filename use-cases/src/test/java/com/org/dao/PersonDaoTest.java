@@ -1,27 +1,3 @@
-/*
- *--------------------------------------------------------
- * Administrateur
- *--------------------------------------------------------
- * Project     : services
- *
- * Copyright Administrateur,  All Rights Reserved.
- *
- * This software is the confidential and proprietary
- * information of Administrateur.
- * You shall not disclose such Confidential Information
- * and shall use it only in accordance with the terms
- * of the license agreement you entered into with
- * Administrateur.
- *-------------------------------------------------------- 
- * 
- * Fichier 		:	PersonDaoTest.java
- * Cree le 		: 	4 sept. 2016 à 16:30:40
- * Auteur		: 	admin
- * 
- * Description 	:
- * 
- *---------------------------------------------------------
- */
 
 package com.org.dao;
 

@@ -1,27 +1,3 @@
-/*
- *--------------------------------------------------------
- * Administrateur
- *--------------------------------------------------------
- * Project     : use-cases
- *
- * Copyright Administrateur,  All Rights Reserved.
- *
- * This software is the confidential and proprietary
- * information of Administrateur.
- * You shall not disclose such Confidential Information
- * and shall use it only in accordance with the terms
- * of the license agreement you entered into with
- * Administrateur.
- *-------------------------------------------------------- 
- * 
- * Fichier 		:	LoadPersonImpl.java
- * Cree le 		: 	20 sept. 2016 à 22:56:28
- * Auteur		: 	admin
- * 
- * Description 	:
- * 
- *---------------------------------------------------------
- */
 
 package com.org.usecases.impl;
 

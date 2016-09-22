@@ -1,28 +1,3 @@
-/*
- *--------------------------------------------------------
- * Administrateur
- *--------------------------------------------------------
- * Project     : persist
- *
- * Copyright Administrateur,  All Rights Reserved.
- *
- * This software is the confidential and proprietary
- * information of Administrateur.
- * You shall not disclose such Confidential Information
- * and shall use it only in accordance with the terms
- * of the license agreement you entered into with
- * Administrateur.
- *-------------------------------------------------------- 
- * 
- * Fichier 		:	PersonDaoImpl.java
- * Cree le 		: 	4 sept. 2016 à 13:52:06
- * Auteur		: 	admin
- * 
- * Description 	:
- * 
- *---------------------------------------------------------
- */
-
 package com.org.dao.impl;
 
 import java.util.ArrayList;
@@ -45,8 +20,8 @@ import com.org.entity.PersonEntity;
 import com.org.exception.IllegalArgumentsException;
 import com.org.exception.PersonRuntimeException;
 import com.org.model.PersonModel;
-import com.org.unit.Tools;
-import com.org.unit.persist.TransactionAttributes;
+import com.org.tools.Tools;
+import com.org.unit.transaction.TransactionAttributes;
 import com.org.utils.DefaultOrder;
 
 /**
@@ -70,7 +45,7 @@ public class PersonDaoImpl implements ContratDao<PersonModel, Integer>
     * @param email
     * @return
     */
-   public List<PersonModel> getByEmail( String email )
+   public PersonModel getByEmail( String email )
    {
       if( email == null || email.trim().length() == 0 )
       {
@@ -80,10 +55,17 @@ public class PersonDaoImpl implements ContratDao<PersonModel, Integer>
       {
          throw new IllegalArgumentsException( "Invalid email expression " + email );
       }
-      Query query = em.createNamedQuery( PersonEntity.PERSON_BY_EMAIL ).setParameter( "email", email );
-      @SuppressWarnings("unchecked")
-      List<PersonModel> results = query.getResultList();
-      return results;
+      PersonEntity results = null;
+      try
+      {
+         Query query = em.createNamedQuery( PersonEntity.PERSON_BY_EMAIL ).setParameter( "email", email );
+         results = (PersonEntity) query.getSingleResult();
+      }
+      catch( Exception e )
+      {
+         
+      }
+      return toModel( results );
    }
    
    /**
@@ -121,7 +103,7 @@ public class PersonDaoImpl implements ContratDao<PersonModel, Integer>
       {
          throw new NullPointerException();
       }
-      if( personModel.getId() == null || personModel.getId() <= 0 )
+      if( personModel.getId() == null || personModel.getId().intValue() <= 0 )
       {
          throw new IllegalArgumentsException( "Invalid control id <= 0 or null" + personModel.getId() );
       }
@@ -154,8 +136,8 @@ public class PersonDaoImpl implements ContratDao<PersonModel, Integer>
       {
          throw new NullPointerException();
       }
-      List<PersonModel> list = getByEmail( personModel.getEmail() );
-      if( list != null && list.size() > 0 )
+      PersonModel model = getByEmail( personModel.getEmail() );
+      if( model != null && model.getEmail() != null && Tools.isValidEmailAddress( model.getEmail() ) )
       {
          throw new PersonRuntimeException( "duplicate email in data base" );
       }
@@ -234,11 +216,11 @@ public class PersonDaoImpl implements ContratDao<PersonModel, Integer>
     */
    private PersonModel toModel( PersonEntity entity )
    {
-      PersonModel personModel = null;
-      if( personModel == null )
+      if( entity == null )
       {
-         personModel = new PersonModel();
+         return null;
       }
+      PersonModel personModel = new PersonModel();
       personModel.setEmail( entity.getEmail() );
       personModel.setFirstName( entity.getFirstName() );
       personModel.setId( entity.getId() );

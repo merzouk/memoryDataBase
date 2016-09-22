@@ -1,5 +1,5 @@
 
-package com.org.unit.persist;
+package com.org.unit.transaction;
 
 /**
  * 
@@ -11,7 +11,6 @@ package com.org.unit.persist;
  */
 public interface TransactionAttributes
 {
-   
    public final String TX_MANAGER_NAME      = "txManager";
    
    public final String TEST_TX_MANAGER_NAME = "testTxManager";
