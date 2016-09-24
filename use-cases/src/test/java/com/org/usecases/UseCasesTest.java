@@ -28,8 +28,8 @@ import com.org.model.PersonModel;
 /**
  * A Renseigner.
  * @author  : admin
- * @project : services
- * @package : com.org.services
+ * @project : use-cases
+ * @package : com.org.usecases
  * @date    : 4 sept. 2016 14:29:24
  */
 @RunWith(SpringJUnit4ClassRunner.class)

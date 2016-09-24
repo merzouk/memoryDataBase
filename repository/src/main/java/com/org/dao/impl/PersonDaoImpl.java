@@ -27,7 +27,7 @@ import com.org.utils.DefaultOrder;
 /**
  * A Renseigner.
  * @author  : mmenhour
- * @project : persist
+ * @project : repository
  * @package : com.org.dao.impl
  * @date    : 4 sept. 2016 13:52:06
  */

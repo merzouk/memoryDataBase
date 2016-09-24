@@ -19,7 +19,7 @@ import javax.persistence.Table;
  * 
  * A Renseigner.
  * @author  : mmenhour
- * @project : model
+ * @project : repository
  * @package : com.org.entity
  * @date    : 4 sept. 2016 13:38:39
  */

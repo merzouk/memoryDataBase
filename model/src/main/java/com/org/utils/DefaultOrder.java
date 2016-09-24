@@ -13,7 +13,7 @@ import com.org.model.PersonModel;
  * This class compares the contents of two object type PersonModel
  * 
  * @author  : mmenhour
- * @project : persist
+ * @project : model
  * @package : com.org.utils
  * @date    : 4 sept. 2016 14:18:01
  */

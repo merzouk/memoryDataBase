@@ -28,7 +28,7 @@ import com.org.model.PersonModel;
 /**
  * A Renseigner.
  * @author  : mmenhour
- * @project : services
+ * @project : use-cases
  * @package : com.org.dao
  * @date    : 4 sept. 2016 16:30:40
  */

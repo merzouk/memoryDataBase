@@ -5,7 +5,7 @@ package com.org.unit.transaction;
  * 
  * A Renseigner.
  * @author  : mmenhour
- * @project : model
+ * @project : commons
  * @package : com.org.model
  * @date    : 4 sept. 2016 13:46:07
  */

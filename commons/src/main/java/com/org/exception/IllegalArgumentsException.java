@@ -8,7 +8,7 @@ package com.org.exception;
  * 
  * A Renseigner.
  * @author  : mmenhour
- * @project : persist
+ * @project : commons
  * @package : com.org.exception
  * @date    : 4 sept. 2016 14:47:48
  */

@@ -30,8 +30,8 @@ import com.org.usecases.UpdateCreatePerson;
 /**
  * A Renseigner.
  * @author  : admin
- * @project : services
- * @package : com.org.services
+ * @project : web
+ * @package : com.org.usecases
  * @date    : 4 sept. 2016 14:29:24
  */
 @RunWith(SpringJUnit4ClassRunner.class)
