@@ -1,5 +1,5 @@
 
-package com.org.usecases.impl;
+package com.org.usecases.person.impl;
 
 import java.util.List;
 

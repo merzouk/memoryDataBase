@@ -1,4 +1,4 @@
-package com.org.usecases.impl;
+package com.org.usecases.person.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
