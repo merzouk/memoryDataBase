@@ -8,7 +8,7 @@ package com.org.usecases;
  * @package : com.org.usecases
  * @date    : 20 sept. 2016 22:52:37
  */
-public interface UpdateCreatePerson<T>
+public interface UpdateCreate<T>
 {
    /**
     * 

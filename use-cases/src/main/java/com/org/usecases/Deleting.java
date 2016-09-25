@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @package : com.org.usecases
  * @date    : 20 sept. 2016 22:53:58
  */
-public interface DeletePerson<T, I extends Serializable>
+public interface Deleting<T, I extends Serializable>
 {
    /**
     * 

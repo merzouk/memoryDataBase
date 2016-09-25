@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.org.dao.ContratDao;
 import com.org.model.PersonModel;
-import com.org.usecases.LoadPerson;
+import com.org.usecases.Loading;
 
 /**
  * A Renseigner.
@@ -20,7 +20,7 @@ import com.org.usecases.LoadPerson;
  * @date    : 20 sept. 2016 22:56:28
  */
 @Service("loadPerson")
-public class LoadPersonImpl implements LoadPerson<PersonModel, Integer>
+public class LoadPersonImpl implements Loading<PersonModel, Integer>
 {
    
    private static final Logger              logger = LoggerFactory.getLogger( LoadPersonImpl.class );
@@ -30,7 +30,7 @@ public class LoadPersonImpl implements LoadPerson<PersonModel, Integer>
    
    /**
     * 
-    * @see com.org.usecases.LoadPerson#getAll()
+    * @see com.org.usecases.Loading#getAll()
     */
    @Override
    public List<PersonModel> getAll()
@@ -41,7 +41,7 @@ public class LoadPersonImpl implements LoadPerson<PersonModel, Integer>
    
    /**
     * 
-    * @see com.org.usecases.LoadPerson#getById(java.io.Serializable)
+    * @see com.org.usecases.Loading#getById(java.io.Serializable)
     */
    @Override
    public PersonModel getById( Integer primaryKey )

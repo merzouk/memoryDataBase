@@ -11,7 +11,7 @@ import java.util.List;
  * @package : com.org.usecases
  * @date    : 20 sept. 2016 22:50:04
  */
-public interface LoadPerson<T, I extends Serializable>
+public interface Loading<T, I extends Serializable>
 {
    /**
     * 

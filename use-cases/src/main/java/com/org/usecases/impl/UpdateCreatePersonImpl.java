@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.org.dao.ContratDao;
 import com.org.model.PersonModel;
-import com.org.usecases.UpdateCreatePerson;
+import com.org.usecases.UpdateCreate;
 
 /**
  * A Renseigner.
@@ -18,7 +18,7 @@ import com.org.usecases.UpdateCreatePerson;
  * @date    : 20 sept. 2016 22:57:12
  */
 @Service("updateCreatePerson")
-public class UpdateCreatePersonImpl implements UpdateCreatePerson<PersonModel>
+public class UpdateCreatePersonImpl implements UpdateCreate<PersonModel>
 {
    private static final Logger              logger = LoggerFactory.getLogger( UpdateCreatePersonImpl.class );
    
@@ -27,7 +27,7 @@ public class UpdateCreatePersonImpl implements UpdateCreatePerson<PersonModel>
    
    /**
     * 
-    * @see com.org.usecases.UpdateCreatePerson#update(java.lang.Object)
+    * @see com.org.usecases.UpdateCreate#update(java.lang.Object)
     */
    @Override
    public PersonModel update( PersonModel t )
@@ -38,7 +38,7 @@ public class UpdateCreatePersonImpl implements UpdateCreatePerson<PersonModel>
    
    /**
    * 
-   * @see com.org.usecases.UpdateCreatePerson#create(java.lang.Object)
+   * @see com.org.usecases.UpdateCreate#create(java.lang.Object)
    */
    @Override
    public PersonModel create( PersonModel t )

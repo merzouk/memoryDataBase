@@ -23,9 +23,9 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import com.org.exception.IllegalArgumentsException;
 import com.org.exception.PersonRuntimeException;
 import com.org.model.PersonModel;
-import com.org.usecases.DeletePerson;
-import com.org.usecases.LoadPerson;
-import com.org.usecases.UpdateCreatePerson;
+import com.org.usecases.Deleting;
+import com.org.usecases.Loading;
+import com.org.usecases.UpdateCreate;
 
 /**
  * A Renseigner.
@@ -42,13 +42,13 @@ public class UseCasesTest
 {
    @SuppressWarnings("unused")
    @Autowired
-   private DeletePerson<PersonModel, Integer> deleteService;
+   private Deleting<PersonModel, Integer> deleteService;
    
    @Autowired
-   private LoadPerson<PersonModel, Integer>   loadPerson;
+   private Loading<PersonModel, Integer>   loadPerson;
    
    @Autowired
-   private UpdateCreatePerson<PersonModel>    updateCreatePerson;
+   private UpdateCreate<PersonModel>    updateCreatePerson;
    
    private static final Logger                logger = LoggerFactory.getLogger( UseCasesTest.class );
    

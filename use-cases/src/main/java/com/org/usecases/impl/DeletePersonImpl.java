@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.org.dao.ContratDao;
 import com.org.model.PersonModel;
-import com.org.usecases.DeletePerson;
+import com.org.usecases.Deleting;
 
 /**
  * A Renseigner.
@@ -17,7 +17,7 @@ import com.org.usecases.DeletePerson;
  * @date    : 20 sept. 2016 22:55:14
  */
 @Service("deletePerson")
-public class DeletePersonImpl implements DeletePerson<PersonModel, Integer>
+public class DeletePersonImpl implements Deleting<PersonModel, Integer>
 {
    private static final Logger              logger = LoggerFactory.getLogger( DeletePersonImpl.class );
    
@@ -26,7 +26,7 @@ public class DeletePersonImpl implements DeletePerson<PersonModel, Integer>
    
    /**
     * 
-    * @see com.org.usecases.DeletePerson#deleteById(java.io.Serializable)
+    * @see com.org.usecases.Deleting#deleteById(java.io.Serializable)
     */
    @Override
    public void deleteById( Integer primaryKey )
@@ -37,7 +37,7 @@ public class DeletePersonImpl implements DeletePerson<PersonModel, Integer>
    
    /**
     * 
-    * @see com.org.usecases.DeletePerson#delete(java.lang.Object)
+    * @see com.org.usecases.Deleting#delete(java.lang.Object)
     */
    @Override
    public void delete( PersonModel t )
